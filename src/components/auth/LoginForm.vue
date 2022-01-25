@@ -74,6 +74,7 @@ export default {
   width: 100%;
   height: 56px;
   padding: 0 20px;
+  margin-bottom: 20px;
   background: #945fbc;
   color: #fff;
   font-size: 16px;
