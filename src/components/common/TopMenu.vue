@@ -14,7 +14,7 @@
         </div>
       </nav>
     </div>
-    <mobile-menu :menu="this.menuToggle"></mobile-menu>
+    <mobile-menu :menu="this.menuToggle" @closeMenu="closeMenu"></mobile-menu>
   </header>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      menuToggle: true,
+      menuToggle: false,
       menuText: "열기",
     };
   },
@@ -35,6 +35,9 @@ export default {
     menuClick() {
       this.menuToggle = !this.menuToggle;
       this.menuText = !this.menuToggle ? "열기" : "닫기";
+    },
+    closeMenu() {
+      this.menuToggle = false;
     },
   },
 };

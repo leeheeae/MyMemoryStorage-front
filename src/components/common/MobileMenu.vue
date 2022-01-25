@@ -1,6 +1,7 @@
 <template>
   <div class="menu-container" :class="{ active: menu }">
     <div class="menu-contents">
+      <div class="close-btn" @click="closeMenu">닫기</div>
       <div class="top-contents">
         <div class="user-info">
           <!-- 로그인 했을 때 -->
@@ -70,6 +71,11 @@ export default {
       login: true,
     };
   },
+  methods: {
+    closeMenu() {
+      this.$emit("closeMenu");
+    },
+  },
 };
 </script>
 
@@ -87,6 +93,7 @@ export default {
   left: 0;
 }
 .menu-contents {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -95,6 +102,11 @@ export default {
   height: 100%;
   background: #fff;
   padding: 2rem;
+}
+.close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
 }
 .top-contents {
   overflow-y: auto;

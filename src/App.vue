@@ -1,5 +1,5 @@
 <template>
-  <top-menu></top-menu>
+  <!-- <top-menu></top-menu> -->
   <router-view />
 </template>
 <script>
@@ -12,10 +12,13 @@ export default {
 </script>
 
 <style>
-@import url("./assets/css/reset.css");
-@import url("./assets/css/common.css");
+@import url("assets/css/reset.css");
+@import url("assets/css/common.css");
 
 #app {
   font-family: "IBMPlexSansKR";
+  width: 100%;
+  min-height: 100vh;
+  background: url("assets/img/bg.png") center center;
 }
 </style>
