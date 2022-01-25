@@ -25,7 +25,7 @@ export default {
       title: "로그인",
       join: {
         textTitle: "기억 저장소 아이디가 없으신가요?",
-        pushLink: "/join",
+        pushLink: "/signup",
         linkText: "기억 저장소 가입",
       },
       find: {
