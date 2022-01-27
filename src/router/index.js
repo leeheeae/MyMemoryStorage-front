@@ -1,11 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    redirect: '/login',
   },
   {
     path: '/signup',
@@ -16,6 +14,16 @@ const routes = [
     path: '/login',
     name: 'LoginPage',
     component: () => import('@/views/LoginPage.vue'),
+  },
+  {
+    path: '/main',
+    name: 'MainPage',
+    component: () => import('@/views/MainPage.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFoundPage',
+    component: () => import('@/views/NotFoundPage.vue'),
   },
 ];
 
