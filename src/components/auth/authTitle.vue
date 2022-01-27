@@ -3,7 +3,10 @@
     <div class="logo">
       <img src="@/assets/img/logo.svg" alt="logo" />
     </div>
-    <h1 class="main-title">나의 <span>기억</span> 저장소 : {{ title }}</h1>
+    <h1 class="main-title">
+      나의 <span class="point">기억</span> 저장소 :
+      <span class="pagename">{{ title }}</span>
+    </h1>
     <p class="sub-text">
       노래, 영화, 여행에 대한 기억 전부 가능합니다.<br />
       나만의 소중한 기억을 나의 기억 저장소에 저장해보세요.
@@ -29,7 +32,7 @@ export default {
   font-weight: 600;
   color: #313131;
 }
-.title-contents .main-title span {
+.title-contents .main-title .point {
   color: #945fbc;
 }
 .title-contents .sub-text {
@@ -44,5 +47,11 @@ export default {
   width: 40px;
   height: 5px;
   background: #945fbc;
+}
+
+@media (max-width: 500px) {
+  .title-contents .main-title .pagename {
+    display: block;
+  }
 }
 </style>

@@ -33,4 +33,10 @@ export default {
   text-decoration: underline;
   color: #747474;
 }
+
+@media (max-width: 500px) {
+  .link-text {
+    flex-direction: column;
+  }
+}
 </style>

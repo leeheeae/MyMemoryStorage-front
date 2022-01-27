@@ -63,6 +63,6 @@ export default {
 .login-form {
   width: 84%;
   max-width: 430px;
-  margin: 0 auto;
+  margin: 4rem auto;
 }
 </style>
