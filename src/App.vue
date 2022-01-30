@@ -2,12 +2,14 @@
   <div class="app-container">
     <side-menu />
     <router-view />
+    <login-info />
   </div>
 </template>
 <script>
 import SideMenu from "@/components/common/SideMenu.vue";
+import LoginInfo from "./components/common/LoginInfo.vue";
 export default {
-  components: { SideMenu },
+  components: { SideMenu, LoginInfo },
 };
 </script>
 
