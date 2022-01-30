@@ -8,9 +8,12 @@ function createInstance() {
 
 const instance = createInstance();
 
+//회원가입
 function signupUser(userData) {
   return instance.post('auth/signup', userData);
 }
+
+//로그인
 function loginUser(userData) {
   return instance.post('auth/login', userData);
 }

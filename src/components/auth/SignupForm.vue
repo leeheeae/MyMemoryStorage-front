@@ -19,11 +19,11 @@
       />
     </div>
     <div class="input-box">
-      <label for="passwordCheck">비밀번호</label>
+      <label for="password_repeat">비밀번호 확인</label>
       <input
         type="text"
-        id="passwordCheck"
-        v-model="passwordCheck"
+        id="password_repeat"
+        v-model="password_repeat"
         placeholder="사용할 비밀번호를 입력해주세요."
       />
     </div>
@@ -75,7 +75,7 @@ export default {
     return {
       user_id: "",
       password: "",
-      passwordCheck: "",
+      password_repeat: "",
       nickname: "",
       phone: "",
       name: "",
@@ -88,6 +88,7 @@ export default {
         const userData = {
           user_id: this.user_id,
           password: this.password,
+          password_repeat: this.password_repeat,
           nickname: this.nickname,
           phone: this.phone,
           name: this.name,

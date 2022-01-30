@@ -41,7 +41,7 @@ export default {
         };
         await loginUser(userData);
         alert("성공적으로 로그인 되었습니다.");
-        this.$router.push("/");
+        this.$router.push("/main");
       } catch (err) {
         console.log(err.response.data);
       }

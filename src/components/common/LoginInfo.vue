@@ -25,7 +25,7 @@
     <!-- toggle on일 경우 show -->
     <div class="info-more" v-show="toggle">
       <div>
-        <router-link to="mypage" class="mypage-btn">내 정보 수정</router-link>
+        <router-link to="/mypage" class="mypage-btn">내 정보 수정</router-link>
       </div>
       <div>
         <button class="logout-btn">로그아웃</button>
