@@ -1,10 +1,21 @@
 <template>
-  <div>메인페이지</div>
+  <div class="main-container">
+    <my-storage />
+  </div>
 </template>
 
 <script>
-export default {};
+import MyStorage from "@/components/main/MyStorage.vue";
+
+export default {
+  components: {
+    MyStorage,
+  },
+};
 </script>
 
-<style>
+<style scoped>
+.main-container {
+  padding: 3rem 4rem;
+}
 </style>
