@@ -12,7 +12,7 @@
     <div class="input-box">
       <label for="password">비밀번호</label>
       <input
-        type="text"
+        type="password"
         id="password"
         v-model="password"
         placeholder="사용할 비밀번호를 입력해주세요."
@@ -21,7 +21,7 @@
     <div class="input-box">
       <label for="password_repeat">비밀번호 확인</label>
       <input
-        type="text"
+        type="password"
         id="password_repeat"
         v-model="password_repeat"
         placeholder="사용할 비밀번호를 입력해주세요."
@@ -94,12 +94,23 @@ export default {
           name: this.name,
           email: this.email,
         };
+
         await signupUser(userData);
         alert("성공적으로 가입 되었습니다.");
         this.$router.push("/");
       } catch (err) {
-        console.error(err);
+        alert(err.response.data.message);
+        this.initFrom();
       }
+    },
+    initFrom() {
+      this.user_id = "";
+      this.password = "";
+      this.password_repeat = "";
+      this.nickname = "";
+      this.phone = "";
+      this.name = "";
+      this.email = "";
     },
   },
 };

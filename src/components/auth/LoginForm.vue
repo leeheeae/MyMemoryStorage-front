@@ -12,7 +12,7 @@
     <div class="input-box">
       <label for="password">비밀번호</label>
       <input
-        type="text"
+        type="password"
         id="password"
         v-model="password"
         placeholder="비밀번호를 입력해주세요."
