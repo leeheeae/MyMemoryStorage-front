@@ -100,6 +100,7 @@ export default {
         this.$router.push("/");
       } catch (err) {
         alert(err.response.data.message);
+      } finally {
         this.initFrom();
       }
     },

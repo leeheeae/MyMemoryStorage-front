@@ -39,12 +39,21 @@ export default {
           user_id: this.user_id,
           password: this.password,
         };
-        await loginUser(userData);
+
+        //store에 있는 로그인 API 로직 실행
+        await this.$store.dispatch("LOGIN", userData);
+
         alert("성공적으로 로그인 되었습니다.");
         this.$router.push("/main");
       } catch (err) {
-        console.log(err.response.data);
+        alert(err.response.data.message);
+      } finally {
+        this.initFrom();
       }
+    },
+    initFrom() {
+      this.user_id = "";
+      this.password = "";
     },
   },
 };
