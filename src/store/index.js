@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 /* cookie */
 import {
     getAuthFromCookie,
+    getNicknameFromCookie,
     getUserFromCookie,
     saveAuthToCookie,
     saveUserToCookie,
@@ -11,26 +12,33 @@ import { loginUser } from "@/api";
 
 export default createStore({
     state: {
-        username: getUserFromCookie() || "",
+        nickname: getNicknameFromCookie() || "",
+        userid: getUserFromCookie() || "",
         token: getAuthFromCookie() || "",
     },
     getters: {
         isLogin(state) {
-            return state.username !== "";
+            return state.nickname !== "";
         },
     },
     mutations: {
         setToken(state, token) {
             state.token = token;
         },
+        setNickname(state, nickname) {
+            state.nickname = nickname;
+        },
+        setUserid(state, userid) {
+            state.userid = userid;
+        },
         clearToken(state) {
             state.token = "";
         },
-        setUsername(state, username) {
-            state.username = username;
+        clearNickname(state) {
+            state.nickname = "";
         },
-        clearUsername(state) {
-            state.username = "";
+        clearUserid(state) {
+            state.userid = "";
         },
     },
     actions: {
@@ -42,14 +50,15 @@ export default createStore({
             //로그인 토큰 저장
             commit("setToken", data.token);
 
-            //로그인 유저이름 저장
-            commit("setUsername", data.user.nickname);
+            //로그인 유저정보 저장
+            commit("setNickname", data.user.nickname);
+            commit("setUserid", data.user.user_id);
 
             //쿠키 토큰 저장
             saveAuthToCookie(data.token);
 
             //쿠키 유저이름 저장
-            saveUserToCookie(data.user.nickname);
+            saveUserToCookie(data.user.nickname, data.user.user_id);
 
             return data;
         },

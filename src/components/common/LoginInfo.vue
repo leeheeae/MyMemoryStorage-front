@@ -2,8 +2,8 @@
   <div class="login-info-container">
     <div class="login-info" @click="loginInfoToggle">
       <div class="login-id">
-        <h3>비타밍구리얍얍</h3>
-        <p>chromeee</p>
+        <h3>{{ $store.state.nickname }}</h3>
+        <p>{{ $store.state.userid }}</p>
       </div>
       <div class="login-img">
         <svg
@@ -50,12 +50,14 @@ export default {
     logoutUser() {
       //스토어 토큰 clear
       this.$store.commit("clearToken");
-      //스토어 유저 정보 clear
-      this.$store.commit("clearUsername");
+      this.$store.commit("clearNickname");
+      this.$store.commit("clearUserid");
+
       //쿠키 토큰 clear
       deleteCookie("til_auth");
-      //쿠키 유저 정보 clear
-      deleteCookie("til_user");
+      deleteCookie("til_nickname");
+      deleteCookie("til_userid");
+
       //로그인 페이지로 이동
       this.$router.push("/login");
     },
@@ -76,6 +78,7 @@ export default {
 }
 .login-info .login-id {
   margin-right: 8px;
+  text-align: right;
 }
 .login-info .login-id h3 {
   font-size: 14px;
