@@ -28,13 +28,15 @@
         <router-link to="/mypage" class="mypage-btn">내 정보 수정</router-link>
       </div>
       <div>
-        <button class="logout-btn">로그아웃</button>
+        <button class="logout-btn" @click="logoutUser">로그아웃</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { deleteCookie } from "@/utils/cookies";
+
 export default {
   data() {
     return {
@@ -44,6 +46,18 @@ export default {
   methods: {
     loginInfoToggle() {
       this.toggle = !this.toggle;
+    },
+    logoutUser() {
+      //스토어 토큰 clear
+      this.$store.commit("clearToken");
+      //스토어 유저 정보 clear
+      this.$store.commit("clearUsername");
+      //쿠키 토큰 clear
+      deleteCookie("til_auth");
+      //쿠키 유저 정보 clear
+      deleteCookie("til_user");
+      //로그인 페이지로 이동
+      this.$router.push("/login");
     },
   },
 };

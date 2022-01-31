@@ -40,7 +40,7 @@ export default {
           password: this.password,
         };
 
-        //store에 있는 로그인 API 로직 실행
+        //store에 있는 로그인 API 로직 액션 실행
         await this.$store.dispatch("LOGIN", userData);
 
         alert("성공적으로 로그인 되었습니다.");

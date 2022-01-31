@@ -1,15 +1,24 @@
 <template>
   <div class="app-container">
-    <side-menu />
+    <!-- 로그인 했을 경우에만 보이도록 설정 -->
+    <template v-if="isLogin">
+      <side-menu />
+      <login-info />
+    </template>
+
     <router-view />
-    <login-info />
   </div>
 </template>
 <script>
 import SideMenu from "@/components/common/SideMenu.vue";
-import LoginInfo from "./components/common/LoginInfo.vue";
+import LoginInfo from "@/components/common/LoginInfo.vue";
 export default {
   components: { SideMenu, LoginInfo },
+  computed: {
+    isLogin() {
+      return this.$store.getters.isLogin;
+    },
+  },
 };
 </script>
 
