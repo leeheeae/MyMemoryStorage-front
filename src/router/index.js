@@ -23,6 +23,12 @@ const routes = [
         meta: { auth: true },
     },
     {
+        path: "/diary",
+        name: "DiaryPage",
+        component: () => import("@/views/DiaryPage.vue"),
+        meta: { auth: true },
+    },
+    {
         path: "/:pathMatch(.*)*",
         name: "NotFoundPage",
         component: () => import("@/views/NotFoundPage.vue"),

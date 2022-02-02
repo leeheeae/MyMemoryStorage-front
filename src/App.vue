@@ -35,4 +35,8 @@ export default {
 .app-container {
   display: flex;
 }
+.main-container {
+  width: calc(100% - 240px);
+  padding: 5rem;
+}
 </style>

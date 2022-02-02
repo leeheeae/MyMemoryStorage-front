@@ -1,7 +1,7 @@
 <template>
-  <div class="main-container">
+  <main class="main-container">
     <my-storage />
-  </div>
+  </main>
 </template>
 
 <script>
@@ -15,7 +15,4 @@ export default {
 </script>
 
 <style scoped>
-.main-container {
-  padding: 3rem 4rem;
-}
 </style>

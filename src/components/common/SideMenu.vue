@@ -93,13 +93,13 @@ export default {};
 
 <style scoped>
 .sidemenu {
-  width: 230px;
+  width: 240px;
   min-height: 100vh;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 .logo {
   display: flex;
-  padding: 1.8rem;
+  padding: 2.1rem 2rem;
 }
 .logo img {
   width: 42px;
@@ -119,7 +119,7 @@ export default {};
 .main-menu .menu-item {
   display: flex;
   align-items: center;
-  padding: 1rem 1.8rem;
+  padding: 1rem 2rem;
   position: relative;
   transition: 0.25s;
 }
@@ -136,7 +136,7 @@ export default {};
 
 /* hover 했을 경우 */
 .main-menu .menu-item:hover {
-  padding: 1rem;
+  padding: 1rem 1.2rem;
   margin: 0 1rem;
   background-color: #f4f0f6;
   border-radius: 4px;
@@ -150,7 +150,7 @@ export default {};
 
 /* 해당 페이지일 경우 */
 .main-menu .router-link-exact-active .menu-item {
-  padding: 1rem 1.8rem;
+  padding: 1rem 2rem;
   margin: 0;
   background-color: transparent;
 }
