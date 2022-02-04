@@ -25,7 +25,19 @@ const routes = [
     {
         path: "/diary",
         name: "DiaryPage",
-        component: () => import("@/views/DiaryPage.vue"),
+        component: () => import("@/views/diary/ListPage.vue"),
+        meta: { auth: true },
+    },
+    {
+        path: "/diary/write",
+        name: "DiaryWritePage",
+        component: () => import("@/views/diary/WritePage.vue"),
+        meta: { auth: true },
+    },
+    {
+        path: "/diary/view/:id",
+        name: "DiaryViewPage",
+        component: () => import("@/views/diary/ViewPage.vue"),
         meta: { auth: true },
     },
     {

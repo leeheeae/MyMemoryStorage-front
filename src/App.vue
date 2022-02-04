@@ -30,7 +30,8 @@ export default {
   font-family: "IBMPlexSansKR";
   width: 100%;
   min-height: 100vh;
-  background: url("assets/img/bg.png") center center;
+  background: url("assets/img/bg.png") center top;
+  background-attachment: fixed;
 }
 .app-container {
   display: flex;

@@ -76,7 +76,7 @@
         <ul>
           <li>
             <div class="day">11</div>
-            <router-link to="/">
+            <router-link to="/diary/view/123123">
               <div class="board-title-box">
                 <p class="board-date">2022/02/11</p>
                 <div class="board-title">
@@ -158,7 +158,7 @@
           </li>
           <li>
             <div class="day">11</div>
-            <router-link to="/">
+            <router-link to="/diary/view/123123">
               <div class="board-title-box">
                 <p class="board-date">2022/02/11</p>
                 <div class="board-title">
