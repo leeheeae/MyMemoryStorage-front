@@ -37,6 +37,7 @@ export default {
 }
 .main-container {
   width: calc(100% - 240px);
+  margin-left: 240px;
   padding: 5rem;
 }
 </style>

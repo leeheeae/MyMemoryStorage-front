@@ -96,6 +96,9 @@ export default {};
   width: 240px;
   min-height: 100vh;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .logo {
   display: flex;
