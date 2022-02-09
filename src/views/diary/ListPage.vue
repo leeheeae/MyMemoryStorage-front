@@ -88,8 +88,16 @@
         :listData="listData"
         @bookmark="bookmarkChange"
       />
-      <ListType02 v-show="changeView.type02" :listData="listData" />
-      <ListType03 v-show="changeView.type03" :listData="listData" />
+      <ListType02
+        v-show="changeView.type02"
+        :listData="listData"
+        @bookmark="bookmarkChange"
+      />
+      <ListType03
+        v-show="changeView.type03"
+        :listData="listData"
+        @bookmark="bookmarkChange"
+      />
     </div>
   </main>
 </template>

@@ -6,7 +6,8 @@
         <div class="day" :style="{ background: item.color }">11</div>
         <router-link :to="`/diary/view/${item.idx}`">
           <div class="board-title-box">
-            <p class="board-date">{{ item.create_date }}</p>
+            <!-- <p class="board-date">{{ item.create_date }}</p> -->
+            <p class="board-date">{{ dateChange(item.create_date) }}</p>
             <div class="board-title">{{ item.title }}</div>
             <div class="preview">
               {{ item.content }}
@@ -87,6 +88,18 @@ export default {
   methods: {
     bookmarkChange(idx) {
       this.$emit("bookmark", idx);
+    },
+    dateChange(value) {
+      const date = new Date(value);
+      const year = date.getFullYear();
+      let month = date.getMonth() + 1;
+      month = month > 9 ? month : `0${month}`;
+      let day = date.getDate();
+      day = day > 9 ? day : `0${day}`;
+      let hours = date.getHours();
+      hours = hours > 9 ? hours : `0${hours}`;
+      const minutes = date.getMinutes();
+      return `${year}-${month}-${day}  ${hours}:${minutes}`;
     },
   },
 };
