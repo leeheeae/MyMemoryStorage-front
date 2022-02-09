@@ -83,9 +83,9 @@
 
     <!-- 다이어리 리스트 -->
     <div class="diary-list-container">
-      <ListType01 />
-      <ListType02 />
-      <ListType03 />
+      <ListType01 v-show="changeView.type01" :listData="listData" />
+      <ListType02 v-show="changeView.type02" />
+      <ListType03 v-show="changeView.type03" />
     </div>
   </main>
 </template>
@@ -93,7 +93,8 @@
 <script>
 import ListType01 from "@/components/diary/ListType01.vue";
 import ListType02 from "@/components/diary/ListType02.vue";
-import ListType03 from "@/components/diary/ListType02.vue";
+import ListType03 from "@/components/diary/ListType03.vue";
+import listData from "@/config/data.json";
 
 export default {
   components: {
@@ -108,6 +109,7 @@ export default {
         type02: false,
         type03: false,
       },
+      listData: listData,
     };
   },
   methods: {
