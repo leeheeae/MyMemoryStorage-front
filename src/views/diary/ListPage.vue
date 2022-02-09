@@ -43,7 +43,11 @@
 
       <!-- 보기방식 선택 -->
       <div class="change-view">
-        <button class="type-01">
+        <button
+          class="type-01"
+          :class="{ active: changeView.type01 }"
+          @click="changeViewButton('type01')"
+        >
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path
               d="M3,5V19H21V5Zm16,6H15.67V7H19Zm-5.33,0H10.34V7h3.33ZM8.33,7v4H5V7ZM5,17V13H8.33v4Zm5.33,0V13h3.33v4Zm5.34,0V13H19v4Z"
@@ -51,7 +55,11 @@
             />
           </svg>
         </button>
-        <button class="type-02">
+        <button
+          class="type-02"
+          :class="{ active: changeView.type02 }"
+          @click="changeViewButton('type02')"
+        >
           <svg width="24" height="24" viewBox="0 0 24 24">
             <rect width="24" height="24" fill="none" />
             <path
@@ -60,7 +68,11 @@
             />
           </svg>
         </button>
-        <button class="type-03 active">
+        <button
+          class="type-03"
+          :class="{ active: changeView.type03 }"
+          @click="changeViewButton('type03')"
+        >
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path d="M0,0H24V24H0Z" fill="none" />
             <path d="M4,15H20V13H4Zm0,4H20V17H4Zm0-8H20V9H4ZM4,5V7H20V5Z" />
@@ -97,6 +109,18 @@ export default {
         type03: false,
       },
     };
+  },
+  methods: {
+    //체인지 버튼
+    changeViewButton(value) {
+      for (let type in this.changeView) {
+        if (type === value) {
+          this.changeView[type] = true;
+        } else {
+          this.changeView[type] = false;
+        }
+      }
+    },
   },
 };
 </script>
