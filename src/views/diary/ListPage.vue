@@ -83,9 +83,13 @@
 
     <!-- 다이어리 리스트 -->
     <div class="diary-list-container">
-      <ListType01 v-show="changeView.type01" :listData="listData" />
-      <ListType02 v-show="changeView.type02" />
-      <ListType03 v-show="changeView.type03" />
+      <ListType01
+        v-show="changeView.type01"
+        :listData="listData"
+        @bookmark="bookmarkChange"
+      />
+      <ListType02 v-show="changeView.type02" :listData="listData" />
+      <ListType03 v-show="changeView.type03" :listData="listData" />
     </div>
   </main>
 </template>
@@ -94,8 +98,7 @@
 import ListType01 from "@/components/diary/ListType01.vue";
 import ListType02 from "@/components/diary/ListType02.vue";
 import ListType03 from "@/components/diary/ListType03.vue";
-import listData from "@/config/data.json";
-import { diaryList } from "@/api";
+import { diaryList, diaryBookmarkUpdate } from "@/api";
 
 export default {
   components: {
@@ -128,10 +131,14 @@ export default {
     //리스트 불러오기
     async diaryListGet(user_id) {
       const { data } = await diaryList(user_id);
-
       this.listData = data.listData;
-
       return data;
+    },
+
+    //북마크 업데이트
+    async bookmarkChange(idx) {
+      await diaryBookmarkUpdate(idx);
+      this.diaryListGet(this.$store.state.userid);
     },
   },
   created() {

@@ -17,7 +17,7 @@
           <button
             class="bookmark-btn"
             :class="{ active: item.bookmark }"
-            @click="bookmarkChange(item.bookmark)"
+            @click="bookmarkChange(item.idx)"
           >
             <svg width="24" height="24" viewBox="0 0 24 24">
               <path d="M0,0H24V24H0Z" fill="none" />
@@ -85,9 +85,8 @@
 export default {
   props: ["listData"],
   methods: {
-    bookmarkChange(bookmark) {
-      bookmark = !bookmark;
-      console.log(bookmark);
+    bookmarkChange(idx) {
+      this.$emit("bookmark", idx);
     },
   },
 };

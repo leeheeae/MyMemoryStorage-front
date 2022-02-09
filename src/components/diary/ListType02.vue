@@ -2,28 +2,23 @@
   <div class="diary-list type-02-list">
     <h3 class="date">2022/02</h3>
     <ul>
-      <li>
-        <div class="day">11</div>
-        <router-link to="/">
+      <li v-for="item in listData" :key="item">
+        <div class="day" :style="{ background: item.color }">11</div>
+        <router-link :to="`/diary/view/${item.idx}`">
           <div class="board-title-box">
-            <p class="board-date">2022/02/11</p>
-            <div class="board-title">평범한 일상의 작은 소소한 행복을 위해</div>
+            <p class="board-date">{{ item.create_date }}</p>
+            <div class="board-title">{{ item.title }}</div>
             <div class="preview">
-              이상을 대한 같으며, 광야에서 이상 인간의 있는 우리 피다. 소금이라
-              청춘의 없으면 가치를 청춘에서만 때문이다. 청춘이 있는 가는 영원히
-              반짝이는 피부가 어디 인생을 심장의 사막이다. 인생에 반짝이는 생의
-              현저하게 곳이 수 주는 가치를 설레는 황금시대다. 이상의 하는
-              날카로우나 행복스럽고 이 이것은 새가 청춘에서만 사막이다. 있는
-              관현악이며, 얼마나 만물은 심장은 설레는 거친 때문이다. 동산에는
-              못할 그러므로 부패를 없으면 아니더면, 끓는다. 트고, 생의 옷을
-              주며, 이것이야말로 있음으로써 이것이다. 우는 오직 가는 용기가
-              우리의 있는 생의 희망의 끓는다. 이 인도하겠다는 이상은
-              철환하였는가?
+              {{ item.content }}
             </div>
           </div>
         </router-link>
         <div class="board-ctrl">
-          <button class="bookmark-btn">
+          <button
+            class="bookmark-btn"
+            :class="{ active: item.bookmark }"
+            @click="bookmarkChange(item.bookmark)"
+          >
             <svg width="24" height="24" viewBox="0 0 24 24">
               <path d="M0,0H24V24H0Z" fill="none" />
               <path
@@ -87,7 +82,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["listData"],
+  methods: {
+    bookmarkChange(bookmark) {
+      bookmark = !bookmark;
+      console.log(bookmark);
+    },
+  },
+};
 </script>
 
 <style scoped>

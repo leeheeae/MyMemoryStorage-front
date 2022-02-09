@@ -2,16 +2,20 @@
   <div class="diary-list type-03-list">
     <h3 class="date">2022/02</h3>
     <ul>
-      <li>
-        <div class="day">11</div>
-        <router-link to="/">
+      <li v-for="item in listData" :key="item">
+        <div class="day" :style="{ background: item.color }">11</div>
+        <router-link :to="`/diary/view/${item.idx}`">
           <div class="board-title-box">
-            <p class="board-date">2022/02/11</p>
-            <div class="board-title">평범한 일상의 작은 소소한 행복을 위해</div>
+            <p class="board-date">{{ item.create_date }}</p>
+            <div class="board-title">{{ item.title }}</div>
           </div>
         </router-link>
         <div class="board-ctrl">
-          <button class="bookmark-btn">
+          <button
+            class="bookmark-btn"
+            :class="{ active: item.bookmark }"
+            @click="bookmarkChange(item.bookmark)"
+          >
             <svg width="24" height="24" viewBox="0 0 24 24">
               <path d="M0,0H24V24H0Z" fill="none" />
               <path
@@ -75,7 +79,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["listData"],
+  methods: {
+    bookmarkChange(bookmark) {
+      bookmark = !bookmark;
+      console.log(bookmark);
+    },
+  },
+};
 </script>
 
 

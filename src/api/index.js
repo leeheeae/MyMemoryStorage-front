@@ -25,4 +25,12 @@ function diaryList(user_id) {
     });
 }
 
-export { signupUser, loginUser, diaryList };
+//다이어리 북마크 업데이트
+function diaryBookmarkUpdate(idx) {
+    console.log(idx);
+    return instance.post("diary/list/bookmark", {
+        idx: idx,
+    });
+}
+
+export { signupUser, loginUser, diaryList, diaryBookmarkUpdate };
