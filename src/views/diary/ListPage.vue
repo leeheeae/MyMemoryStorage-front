@@ -95,6 +95,7 @@ import ListType01 from "@/components/diary/ListType01.vue";
 import ListType02 from "@/components/diary/ListType02.vue";
 import ListType03 from "@/components/diary/ListType03.vue";
 import listData from "@/config/data.json";
+import { diaryList } from "@/api";
 
 export default {
   components: {
@@ -109,7 +110,7 @@ export default {
         type02: false,
         type03: false,
       },
-      listData: listData,
+      listData: {},
     };
   },
   methods: {
@@ -123,6 +124,18 @@ export default {
         }
       }
     },
+
+    //리스트 불러오기
+    async diaryListGet(user_id) {
+      const { data } = await diaryList(user_id);
+
+      this.listData = data.listData;
+
+      return data;
+    },
+  },
+  created() {
+    this.diaryListGet(this.$store.state.userid);
   },
 };
 </script>
